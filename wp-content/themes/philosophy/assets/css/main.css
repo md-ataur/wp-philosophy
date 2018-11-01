@@ -344,9 +344,15 @@ hr {
    margin: 2.4rem 0 1.5rem;
    height: 0;
 }
+.slider-bar{
+   width: 300px;
+}
 
-.title-margin{text-align: center;margin: 0 0 65px;}
+.title-margin{text-align: center;margin: 0 0 30px;}
 
+.cod-social span {
+    margin: 0 8px 0 0;
+}
 /* ------------------------------------------------------------------- 
  * ## Lists
  * ------------------------------------------------------------------- */

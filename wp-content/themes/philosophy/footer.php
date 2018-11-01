@@ -151,9 +151,36 @@
                     </form>
                 </div>
 
-            </div> <!-- end s-footer__subscribe -->
+                <!-- codestar social start -->
+                <?php
+                $footer_social = cs_get_option('footer_tag');
+                if ($footer_social) {               
+                ?>
+               
+                <div class="cod-social">
+                <?php
+                    $philosophy_fb =  cs_get_option( 'social_facebook' );
+                    $philosophy_tw =  cs_get_option( 'social_twitter' );
+                    $philosophy_pn =  cs_get_option( 'social_pinterest' );
+                    if ($philosophy_fb) {
+                        echo "<span><a href='$philosophy_fb'><i class='fa fa-facebook'></i></a></span>";
+                    }
+                    if ($philosophy_tw) {
+                        echo "<span><a href='$philosophy_fb'><i class='fa fa-twitter'></i></a></li>";
+                    }
+                    if ($philosophy_pn) {
+                        echo "<span><a href='$philosophy_fb'><i class='fa fa-pinterest'></i></a></span>";
+                    }
+                ?>
+               
+                </div>
+            <?php } ?>
+             <!-- codestar social end -->
 
+            </div> <!-- end s-footer__subscribe -->
+            
         </div>
+
     </div> <!-- end s-footer__main -->
 
     <div class="s-footer__bottom">

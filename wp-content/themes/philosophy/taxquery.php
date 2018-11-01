@@ -37,7 +37,9 @@ get_header();
 						wp_reset_query();
 		                ?>
 		            </div>
-		        </div> <!-- end masonry -->
+		        </div> <!-- end masonry -->       
+
+
 		    </div> <!-- end masonry-wrap -->
 
 		    <div class="row">

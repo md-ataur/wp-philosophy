@@ -49,6 +49,17 @@
         });
     };
 
+    var slider = tns({
+        container: '.my-slider',
+        speed: 1000,
+        autoplayTimeout: 3000,
+        items: 1,
+        slideBy: 'page',
+        controls: true,
+        nav: false,
+        autoplayButtonOutput: false,
+        autoplay: false
+    });
 
    /* mediaelement
     * ------------------------------------------------------ */
@@ -625,5 +636,6 @@
         clGoogleMap();
 
     })();
-        
+    
+
 })(jQuery);
