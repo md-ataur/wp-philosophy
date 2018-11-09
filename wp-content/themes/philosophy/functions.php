@@ -41,7 +41,7 @@ function philosophy_setup_theme(){
     	"footer-right" 	=> __("Footer Right Menu","philosophy")
     ) );
 	add_editor_style("/assets/css/editor-style.css");
-	add_image_size( 'philosophy-square', 400, 460, true );
+	add_image_size( 'philosophy-square', 400, 460, true );	
 
 }
 add_action( 'after_setup_theme', 'philosophy_setup_theme');
@@ -64,6 +64,14 @@ function philosophy_assets(){
 		wp_enqueue_script( "comment-reply" );
 	}
 	wp_enqueue_script( "philosophy-main-js", get_theme_file_uri( "assets/js/main.js" ), array("jquery", "philosophy-plugins-js"), "0.1" , true);
+	
+	if (is_page_template( "ajax.php" )) {
+		wp_enqueue_script( "ajaxtest-js", get_theme_file_uri( "assets/js/ajaxtest.js" ), array('jquery'), VERSION, true );
+		$ajaxurl = admin_url( 'admin-ajax.php' );
+		
+		wp_localize_script( "ajaxtest-js","urls", array("ajaxurl"=>$ajaxurl));
+
+	}
 
 }
 add_action( 'wp_enqueue_scripts', 'philosophy_assets');
@@ -231,4 +239,27 @@ function philosophy_foter_tag_terms($tags){
 	return $tags;
 }
 add_filter( "philosophy_tag_terms", "philosophy_foter_tag_terms");
-?>
+
+
+/* ajax test logedin */
+function philosophy_ajaxtest(){
+	if (check_ajax_referer( "ajaxtest", "s" )) {
+		$info = $_POST['info'];
+		echo strtoupper($info);
+		die();
+	}
+
+}
+add_action( "wp_ajax_ajaxtest", "philosophy_ajaxtest");
+
+
+/* ajax test not logedin */
+function philosophy_ajaxtest_nopriv(){
+	$info = $_POST['info'];
+	echo strtoupper("GLOBAL ".$info);
+	die();
+}
+add_action( "wp_ajax_nopriv_ajaxtest", "philosophy_ajaxtest_nopriv");
+
+
+
