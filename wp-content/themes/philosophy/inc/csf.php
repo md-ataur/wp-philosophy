@@ -1,5 +1,5 @@
 <?php
-define( 'CS_ACTIVE_FRAMEWORK',   false  ); // default true
+define( 'CS_ACTIVE_FRAMEWORK',   true  ); // default true
 define( 'CS_ACTIVE_METABOX',     true ); // default true
 define( 'CS_ACTIVE_TAXONOMY',    true ); // default true
 define( 'CS_ACTIVE_SHORTCODE',   true ); // default true
@@ -212,7 +212,6 @@ add_action("init","philosophy_theme_option_init");
 function philosophy_theme_options(){
 
 	$options = array();
-
 	$options[]    = array(
 		'name'      => 'footer_options',
 		'title'     => __('Section 1','philosophy'),
